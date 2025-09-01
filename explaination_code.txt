@@ -1,0 +1,51 @@
+Server Code (server.py):
+Flask Setup: The server uses Flask, a web framework for Python, to handle HTTP requests.
+Shared Data Structures:
+file_lock: A threading lock to ensure thread-safe access to the files dictionary.
+files: A dictionary to store file names as keys and their corresponding contents as values.
+Helper Functions:
+hash_file_content: Generates a hash for a given file content using SHA-256.
+detect_duplicates: Detects duplicate files based on their content hash.
+Routes:
+/write (POST): Accepts JSON data containing a file name and content, then writes the file to the server's files dictionary after checking for duplicates.
+/read (GET): Returns the contents of all files stored in the server's files dictionary.
+Main Execution:
+If the script is executed directly (__name__ == '__main__'), the Flask app is run on the specified host and port (172.31.13.6:5000) in debug mode.
+-------------------------------------
+
+User Code (user_code.py):
+User Interaction:
+Prompts the user to enter a file name.
+Sends a GET request to the server to retrieve the content of the specified file.
+----------------------------------
+
+Content Provider Code (content_provider_code.py):
+User Interaction:
+Prompts the user to enter a file name and content.
+Sends a POST request to the server to add a new file with the specified name and content.
+Note:
+Both the user and content provider codes use the requests library to make HTTP requests to the server.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In the given scenario, the Ricart-Agrawala algorithm is being used to achieve mutual exclusion in a distributed environment. This algorithm ensures that only one process can access a critical section (in this case, writing a file) at a time, even in a distributed system where multiple processes might be running on different nodes.
+
+Here's how the Ricart-Agrawala algorithm is adapted for the file writing process:
+
+Requesting Permission:
+When a content provider wants to write a file, it sends a request to the server.
+This request includes information about the file it wants to write.
+Receiving Permission:
+The server receives the request from the content provider.
+It checks if the content provider's request can be granted (i.e., if there are no conflicting requests from other content providers).
+If the server determines that the request can be granted, it sends permission to the content provider to proceed with writing the file.
+Waiting for Permission:
+If the server determines that the content provider's request cannot be granted immediately (i.e., there are conflicting requests from other content providers), it places the requesting content provider in a queue.
+The content provider waits until it receives permission from the server to proceed.
+Writing the File:
+Once the content provider receives permission from the server, it proceeds to write the file.
+Releasing Permission:
+After the file is successfully written, the content provider releases the permission it obtained from the server, allowing other content providers to request permission to write files.
+This process ensures that only one content provider can write a file at any given time. If multiple content providers simultaneously request permission to write files, the server arbitrates between them based on the order of their requests, ensuring that conflicts are resolved in a fair and coordinated manner.
+
+The Ricart-Agrawala algorithm achieves mutual exclusion in a distributed system by using message passing and a centralized server to coordinate access to shared resources. By carefully coordinating requests and responses, it ensures that concurrent access to critical sections is controlled and conflicts are avoided.

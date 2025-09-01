@@ -1,0 +1,49 @@
+Test Case 1: Single User Requesting Existing File
+
+SSH into User Node 1 VM.
+Run user_code.py.
+Enter the name of an existing file (e.g., file1.txt) when prompted.
+The script will request the specified file from the server and display its content.
+
+
+Test Case 2: Single User Requesting Non-Existent File
+
+SSH into User Node 3 VM.
+Run user_code.py.
+Enter the name of a non-existent file (e.g., nonexistent_file.txt) when prompted.
+The script will inform you that the specified file does not exist on the server.
+
+
+Test Case 3: Multiple Users Concurrently Requesting Files
+
+SSH into both User Node 1 and Node 3 VMs.
+On User Node 1 VM, run user_code.py.
+Enter the name of an existing file (e.g., file1.txt) when prompted.
+
+On User Node 3 VM, run user_code.py.
+Enter the name of another existing file (e.g., file2.txt) when prompted.
+Both scripts will request files concurrently from the server, and the content of the requested files will be displayed.
+
+Test Case 4: Content Provider Adding New File
+
+SSH into Content Provider Node 1 VM.
+Run content_provider_code.py.
+Enter the name and content of the new file when prompted.
+The script will send a request to the server to add the new file.
+
+Test Case 5: Content Provider Adding Duplicate File
+
+SSH into Content Provider Node 1 VM.
+Run content_provider_code.py.
+Attempt to add a file with the same name as an existing file but with different content.
+The script will attempt to add the file to the server, and the server should reject the request due to the duplicate file.
+
+
+Test Case 6: Duplicate File Detection
+
+SSH into Content Provider Node 1 VM.
+Run content_provider_code.py.
+Attempt to add two files with identical content.
+The script will attempt to add the files to the server, and the server should detect the duplicate content and reject the request for one of the files.
+
+Test Case 7: demonstrating mutual exclusion
