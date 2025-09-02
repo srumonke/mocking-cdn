@@ -1,9 +1,7 @@
 # mocking-cdn
-
-
-🚀 Distributed File Transfer using Flask & Redis for CDN Simulation
-Built a Flask-based web application for efficient file upload and download in a distributed system.
-Used Redis as an in-memory cache to simulate Content Delivery Network (CDN) behavior.
-Enabled parallel file distribution and access across nodes.
-Focused on improving file serving performance, reducing latency, and ensuring scalability.
-Demonstrated the system’s effectiveness in high-throughput scenarios.
+> This project simulates a **mini CDN** using Python, Flask, and Redis. The system has three main parts:  
+> - **server.py** – runs the Flask server, serves files, fetches from other servers if missing, and caches locally.  
+> - **client.py** – allows clients to request files from the server.  
+> - **notification.py** – subscribes to Redis Pub/Sub and alerts when new files are added by the content provider.  
+>  
+> New files can be pushed into the system by the content provider, after which they are accessible to clients and automatically trigger real-time notifications.
