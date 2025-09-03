@@ -11,6 +11,10 @@
 ## 📌 mocking-cdn concurrent access, duplicate detection adn file versioning
 
 This project extends the distributed file management system using **Python** and the **Flask framework**, with added support for **concurrent access, duplicate detection, and file versioning**.  
+https://github.com/srumonke/mocking-cdn/tree/main/Additonal_feature
+https://github.com/srumonke/mocking-cdn/tree/main/Node1
+https://github.com/srumonke/mocking-cdn/tree/main/Node2
+https://github.com/srumonke/mocking-cdn/tree/main/Node3
 
 ### 🔹 Core Functionality  
 - Clients request files from the server (`/read` endpoint).  
