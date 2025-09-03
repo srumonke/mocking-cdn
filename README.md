@@ -15,6 +15,8 @@ This project extends the distributed file management system using **Python** and
 - https://github.com/srumonke/mocking-cdn/tree/main/Node1
 - https://github.com/srumonke/mocking-cdn/tree/main/Node2
 - https://github.com/srumonke/mocking-cdn/tree/main/Node3
+- https://github.com/srumonke/mocking-cdn/blob/main/explanation_code.txt
+- https://github.com/srumonke/mocking-cdn/blob/main/test_cases2.txt
 
 ### 🔹 Core Functionality  
 - Clients request files from the server (`/read` endpoint).  
